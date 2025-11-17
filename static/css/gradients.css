@@ -1,0 +1,30 @@
+/* Dark Mode with Purple Theme */
+body {
+    background: var(--bg-secondary);
+    min-height: 100vh;
+}
+
+/* Purple gradient text for header */
+.gradient-text {
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+}
+
+/* Subtle shimmer effect for buttons (purple) */
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}

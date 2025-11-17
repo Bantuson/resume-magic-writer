@@ -1,0 +1,60 @@
+structure_candidate_data:
+  description: >
+    Convert the user-provided professional details into a structured dataset.
+    You must parse and organize: background, work experience, education,
+    certifications, skills, achievements, contact information, volunteer work,
+    languages, and any additional relevant sections.
+
+    Your final dataset must have clear fields such as:
+      - header
+      - summary (if present)
+      - skills
+      - experience (detailed, chronological)
+      - education
+      - achievements
+      - certifications
+      - additional info (if any)
+
+    The user will provide raw text, which may be messy or unstructured. You
+    must clean it, deduplicate, and structure it for downstream processing.
+  expected_output: >
+    A structured JSON-like dataset containing all parsed resume sections,
+    cleaned and ready for further analysis.
+  agent: resume_data_analyst
+
+analyze_job_requirements:
+  description: >
+    Analyze the provided job description(s) and compare them to the structured
+    candidate dataset. Identify which skills, accomplishments, and experiences
+    best match the employer’s requirements.
+
+    You must produce:
+      - A requirement-by-requirement mapping.
+      - A relevance score or summary for each match.
+      - Recommendations on which experiences or skills should be emphasized
+        in the final resume.
+
+    The output MUST be thorough and directly usable by the resume writer.
+  expected_output: >
+    A detailed relevance mapping showing how the candidate aligns with the
+    target job, including explicit skill and experience match analysis.
+  agent: job_match_strategist
+
+generate_tailored_resume:
+  description: >
+    Using the structured candidate dataset and the job relevance analysis,
+    craft a polished, ATS-optimized resume fully tailored to the job description.
+
+    The resume MUST include:
+      - Header with contact info
+      - Professional summary aligned to the job
+      - Skill section highlighting relevant strengths
+      - Work experience with strong, action-based accomplishments
+      - Education
+      - Optional sections: certifications, awards, volunteer work, languages
+
+    The formatting must be clean, professional, and recruiter-friendly.
+  expected_output: >
+    Your final answer MUST be a complete, ready-to-use resume in polished,
+    ATS-optimized Markdown format.
+  agent: resume_writer

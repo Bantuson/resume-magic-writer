@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Magic Writer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/colors.css?v=7">
+    <link rel="stylesheet" href="/static/css/gradients.css?v=7">
+    <link rel="stylesheet" href="/static/css/main.css?v=7">
+    <link rel="stylesheet" href="/static/css/floating-labels.css?v=7">
+    <link rel="stylesheet" href="/static/css/preview-modal.css?v=7">
+    <link rel="stylesheet" href="/static/css/resume.css?v=7">
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <a href="#resumeForm" class="skip-to-content">Skip to content</a>
+    <header class="app-header">
+        <h1 class="gradient-text">RESUME MAGIC WRITER</h1>
+    </header>
+
+    <main class="app-container">
+        <div class="form-wrapper">
+            <form id="resumeForm">
+                <section class="form-section">
+                    <h2>Contact Information</h2>
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <input type="text" id="fullName" placeholder=" " required>
+                            <label for="fullName" class="required">Full Name</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="email" id="email" placeholder=" " required>
+                            <label for="email" class="required">Email</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="tel" id="phone" placeholder=" " required>
+                            <label for="phone" class="required">Phone</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="text" id="city" placeholder=" " required>
+                            <label for="city" class="required">City</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="text" id="state" placeholder=" " required>
+                            <label for="state" class="required">State</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="url" id="linkedinUrl" placeholder=" ">
+                            <label for="linkedinUrl">LinkedIn URL</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="url" id="portfolioUrl" placeholder=" ">
+                            <label for="portfolioUrl">Portfolio URL</label>
+                        </div>
+                        <div class="form-field">
+                            <input type="url" id="githubUrl" placeholder=" ">
+                            <label for="githubUrl">GitHub URL</label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>Professional Summary</h2>
+                    <div class="form-field">
+                        <textarea id="professionalSummary" rows="4" placeholder=" "></textarea>
+                        <label for="professionalSummary">Brief professional summary (2-4 sentences)</label>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>Work Experience</h2>
+                    <div id="workExperienceContainer">
+                        <!-- Dynamic work experience entries will be added here -->
+                    </div>
+                    <button type="button" class="btn-secondary" onclick="addWorkExperience()">+ Add Work Experience</button>
+                </section>
+
+                <section class="form-section">
+                    <h2>Education</h2>
+                    <div id="educationContainer">
+                        <!-- Dynamic education entries will be added here -->
+                    </div>
+                    <button type="button" class="btn-secondary" onclick="addEducation()">+ Add Education</button>
+                </section>
+
+                <section class="form-section">
+                    <h2>Skills</h2>
+                    <div class="form-field">
+                        <textarea id="technicalSkills" rows="2" placeholder=" "></textarea>
+                        <label for="technicalSkills">Technical Skills (comma-separated)</label>
+                    </div>
+                    <div class="form-field">
+                        <textarea id="softSkills" rows="2" placeholder=" "></textarea>
+                        <label for="softSkills">Soft Skills (comma-separated)</label>
+                    </div>
+                    <div class="form-field">
+                        <textarea id="toolsAndTech" rows="2" placeholder=" "></textarea>
+                        <label for="toolsAndTech">Tools & Technologies (comma-separated)</label>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>Certifications (Optional)</h2>
+                    <div id="certificationsContainer">
+                        <!-- Dynamic certification entries -->
+                    </div>
+                    <button type="button" class="btn-secondary" onclick="addCertification()">+ Add Certification</button>
+                </section>
+
+                <section class="form-section">
+                    <h2>Projects (Optional)</h2>
+                    <div id="projectsContainer">
+                        <!-- Dynamic project entries -->
+                    </div>
+                    <button type="button" class="btn-secondary" onclick="addProject()">+ Add Project</button>
+                </section>
+
+                <section class="form-section job-description-section">
+                    <h2>Job Description</h2>
+                    <div class="form-field">
+                        <input type="text" id="jobTitle" placeholder=" " required>
+                        <label for="jobTitle" class="required">Job Title</label>
+                    </div>
+                    <div class="form-field">
+                        <input type="text" id="companyName" placeholder=" " required>
+                        <label for="companyName" class="required">Company Name</label>
+                    </div>
+                    <div class="form-field">
+                        <textarea id="jobDescription" rows="8" placeholder=" " required></textarea>
+                        <label for="jobDescription" class="required">Paste the full job description here...</label>
+                    </div>
+                </section>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary" id="generateBtn">Generate Resume</button>
+                    <button type="button" class="btn-secondary" onclick="clearForm()">Clear Form</button>
+                    <button type="button" class="btn-secondary" onclick="saveProgress()">Save Progress</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="preview-modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="preview-modal-overlay"></div>
+        <div class="preview-modal-content">
+            <button class="preview-modal-close" aria-label="Close preview">&times;</button>
+
+            <div class="preview-modal-header">
+                <div class="preview-modal-header-left">
+                    <div class="match-score-badge">
+                        <span class="score-label">Match Score</span>
+                        <span id="matchScore" class="score-value">--</span>
+                    </div>
+                </div>
+                <div class="preview-actions">
+                    <button class="btn-action" onclick="downloadPDF()">Download PDF</button>
+                    <button class="btn-action" onclick="showRegenerateOptions()">Regenerate</button>
+                </div>
+            </div>
+
+            <div id="resumePreview" class="resume-preview-modal">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Generating your optimized resume...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="regenerateModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Regenerate Resume</h3>
+            <p>Choose a variation:</p>
+            <div class="modal-options">
+                <button onclick="regenerateResume('more_concise')">More Concise</button>
+                <button onclick="regenerateResume('more_detailed')">More Detailed</button>
+                <button onclick="regenerateResume('emphasize_technical')">Emphasize Technical Skills</button>
+                <button onclick="regenerateResume('emphasize_leadership')">Emphasize Leadership</button>
+            </div>
+            <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="/static/js/preview-modal.js"></script>
+    <script src="/static/js/floating-labels.js"></script>
+    <script src="/static/js/form-handler.js"></script>
+    <script src="/static/js/api-client.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

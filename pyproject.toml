@@ -1,0 +1,17 @@
+[project]
+name = "resume-magic-writer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "crewai>=1.4.1",
+    "crewai-tools>=1.4.1",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "pydantic>=2.10.0",
+    "python-dotenv>=1.0.0",
+    "markdown>=3.7",
+    "weasyprint>=63.0",
+    "python-multipart>=0.0.18",
+]

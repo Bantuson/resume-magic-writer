@@ -1,0 +1,117 @@
+/**
+ * Dark Mode Color System with Purple Accent
+ * Resume Magic Writer - Professional Dark Theme
+ */
+
+:root {
+    /* ========== Dark Mode Backgrounds ========== */
+    --bg-primary: #1a1a1a;           /* Card backgrounds - darker than body */
+    --bg-secondary: #2d2d2d;         /* Body background */
+    --bg-elevated: #252525;          /* Elevated/hover cards */
+    --bg-header: #111111;            /* Header background */
+
+    /* ========== Purple Accent System ========== */
+    --accent-primary: #8b5cf6;       /* Violet - primary accent */
+    --accent-hover: #7c3aed;         /* Darker purple for hover */
+    --accent-light: rgba(139, 92, 246, 0.1);   /* Light tint for backgrounds */
+    --accent-border: rgba(139, 92, 246, 0.3);  /* Border with transparency */
+    --accent-glow: rgba(139, 92, 246, 0.5);    /* Glow effects */
+
+    /* ========== Text Colors (Light on Dark) ========== */
+    --text-primary: #f9fafb;         /* Near white - primary text */
+    --text-secondary: #d1d5db;       /* Light grey - secondary text */
+    --text-tertiary: #9ca3af;        /* Medium grey - labels, placeholders */
+    --text-muted: #6b7280;           /* Darker grey - disabled states */
+
+    /* ========== Border Colors ========== */
+    --border-primary: #374151;       /* Visible borders on dark */
+    --border-secondary: #4b5563;     /* Lighter borders */
+    --border-accent: #8b5cf6;        /* Purple accent borders */
+    --border-focus: #a78bfa;         /* Lighter purple for focus */
+
+    /* ========== Input Fields ========== */
+    --input-bg: #1f2937;             /* Dark input background */
+    --input-border: #4b5563;         /* Input border */
+    --input-focus-bg: #1a2332;       /* Slightly different on focus */
+    --input-focus-border: #8b5cf6;   /* Purple focus border */
+    --input-focus-ring: rgba(139, 92, 246, 0.15);  /* Focus ring */
+
+    /* ========== Success & States ========== */
+    --color-success: #10b981;        /* Emerald green for success */
+    --color-success-bg: rgba(16, 185, 129, 0.1);
+    --color-warning: #f59e0b;        /* Amber for warnings */
+    --color-warning-bg: rgba(245, 158, 11, 0.1);
+    --color-danger: #ef4444;         /* Red for errors/remove */
+    --color-danger-bg: rgba(239, 68, 68, 0.1);
+
+    /* ========== Special Sections ========== */
+    --job-section-bg: rgba(245, 158, 11, 0.15);  /* Amber tint */
+    --job-section-border: #f59e0b;   /* Amber border */
+
+    /* ========== Shadows ========== */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.7);
+    --shadow-purple: 0 4px 12px rgba(139, 92, 246, 0.4);
+    --shadow-purple-lg: 0 8px 20px rgba(139, 92, 246, 0.5);
+
+    /* ========== Gradients ========== */
+    --gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    --gradient-purple-hover: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    --gradient-dark: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+
+    /* ========== Modal/Overlay ========== */
+    --overlay-dark: rgba(0, 0, 0, 0.9);
+    --modal-bg: #1a1a1a;
+    --modal-border: #374151;
+
+    /* ========== Typography ========== */
+    --font-body: 'Inter', sans-serif;
+    --font-display: 'Permanent Marker', cursive;
+
+    /* ========== Spacing (8pt grid) ========== */
+    --space-xs: 0.5rem;    /* 8px */
+    --space-sm: 0.75rem;   /* 12px */
+    --space-md: 1rem;      /* 16px */
+    --space-lg: 1.5rem;    /* 24px */
+    --space-xl: 2rem;      /* 32px */
+    --space-2xl: 2.5rem;   /* 40px */
+    --space-3xl: 3rem;     /* 48px */
+
+    /* ========== Border Radius ========== */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-full: 9999px;
+
+    /* ========== Transitions ========== */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.2s ease;
+    --transition-slow: 0.3s ease;
+    --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== Utility Classes ========== */
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+.text-accent { color: var(--accent-primary); }
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-danger { color: var(--color-danger); }
+
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-elevated { background-color: var(--bg-elevated); }
+.bg-accent { background-color: var(--accent-primary); }
+
+.border-primary { border-color: var(--border-primary); }
+.border-accent { border-color: var(--border-accent); }
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-purple { box-shadow: var(--shadow-purple); }
